@@ -1,0 +1,15 @@
+# IntelliJ Stuff
+.idea/
+.idea_modules/
+*.iml
+
+# Compiled stuff
+*.class
+target/
+project/project/
+
+# General Stuff
+*.swp
+
+# Mac specific stuff
+.DS_Store
