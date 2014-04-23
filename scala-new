@@ -1,0 +1,31 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_NAME=`basename $0`
+
+appname=$1
+
+# update application
+pushd $DIR >/dev/null 2>&1
+  echo "Updating template repository"
+  git co -f master
+  git clean -f
+  git pull --rebase origin master
+popd >/dev/null 2>&1
+
+
+# set project
+if [ -e $appname ] ; then
+  echo "File or folder already exists: ${appname}"
+else
+  echo "Creating template"
+  mkdir -p $appname
+  pushd $appname >/dev/null 2>&1
+    appdir=`pwd`
+  popd >/dev/null 2>&1
+
+  pushd $DIR >/dev/null 2>&1
+    ls -a .| grep -vi $SCRIPT_NAME| grep -ve '.git$' | grep -ve '^\.$' | grep -ve '^\.\.$' | xargs -I{} cp -R "{}" $appdir
+  popd >/dev/null 2>&1
+  echo "done"
+fi
