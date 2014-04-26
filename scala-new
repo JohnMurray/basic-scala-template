@@ -8,7 +8,7 @@ appname=$1
 # update application
 pushd $DIR >/dev/null 2>&1
   echo "Updating template repository"
-  git co -f master
+  git checkout -f master
   git clean -f
   git pull --rebase origin master
 popd >/dev/null 2>&1
