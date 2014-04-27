@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# A simple script to start a new scala project. Will ensure that
+# the basic-scala-template repo is up-to-date with the remote master
+# and then it will create a new directory with the argument given
+# and copy over files from the template to that new directory.
+#
+# Usage:
+#   scala-new APPLICATION_NAME
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SCRIPT_NAME=`basename $0`
 
