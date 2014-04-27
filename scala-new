@@ -19,6 +19,12 @@ pushd $DIR >/dev/null 2>&1
   git checkout -f master
   git clean -f
   git pull --rebase origin master
+
+  if [ ! $? = 0 ] ; then
+    echo "Error:"
+    echo "	Could not update basic-scala-template via remote repository"
+    echo "	Continuing with a possibly out-of-date version"
+  fi
 popd >/dev/null 2>&1
 
 
