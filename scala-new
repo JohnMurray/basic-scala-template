@@ -39,7 +39,10 @@ else
   popd >/dev/null 2>&1
 
   pushd $DIR >/dev/null 2>&1
-    ls -a .| grep -vi $SCRIPT_NAME| grep -ve '.git$' | grep -ve '^\.$' | grep -ve '^\.\.$' | xargs -I{} cp -R "{}" $appdir
+    ls -a .| grep -vi $SCRIPT_NAME| grep -ve '.git$' | grep -ve '^\.$' | grep -vi 'readme.md' | grep -ve '^\.\.$' | xargs -I{} cp -R "{}" $appdir
+    echo "# $appname" > $appdir/readme.md
+    echo "" >> $appdir/readme.md
+    echo "__ToDo__: Write some content in here" >> $appdir/readme.md
   popd >/dev/null 2>&1
   echo "done"
 fi
