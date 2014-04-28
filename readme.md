@@ -9,8 +9,7 @@ was added to this and why.
 First you'll need to setup the project locally. I like to do the following:
 
 ```shell
-cd $HOME
-git clone git://github.com/JohnMurray/basic-scala-template.git .basic-scala-template
+git clone git://github.com/JohnMurray/basic-scala-template.git $HOME/.basic-scala-template
 echo 'alias scala-new="$HOME/.basic-scala-template/scala-new"' >>~/.bashrc
 ```
 
