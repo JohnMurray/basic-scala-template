@@ -17,18 +17,18 @@ object BuildSettings {
    val buildOrganization = "johnmurray.io"
    val appName = "CHANGE_ME"
    val buildVersion = "0.0.1-SNAPSHOT"
-   val buildScalaVersion = "2.10.4"
+   val buildScalaVersion = "2.11.1"
    val buildScalaOptions = Seq("-unchecked", "-deprecation", "-encoding", "utf8")
  
    import Resolvers._
    import Dependencies._
  
    val buildSettings = Defaults.defaultSettings ++ Seq(
-      organization        := buildOrganization,
-      version             := buildVersion,
-      scalaVersion        := buildScalaVersion,
-      libraryDependencies := appDependencies,
-      scalacOptions       := buildScalaOptions
+      organization         := buildOrganization,
+      version              := buildVersion,
+      scalaVersion         := buildScalaVersion,
+      libraryDependencies ++= appDependencies,
+      scalacOptions        := buildScalaOptions
    ) ++ Revolver.settings ++ ScalastylePlugin.Settings
 }
  
